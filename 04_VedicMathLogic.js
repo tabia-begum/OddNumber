@@ -4,6 +4,8 @@ for(i=0;i<3;i++)
 {
 for(j=0;j<3;j++)
 {
+    //I have here assigned the values in the indexes of the array 
+    //The positions were pre-determined to test the function.
     if(i === 1 && j === 2)
     a[i][j] = 1
 else if(i === 2 && j === 0)
@@ -24,6 +26,7 @@ else if(i === 1 && j === 0)
 a[i][j]=9
 }
 }
+//this function here performs the concations of the rows to form a matrix.
 for (let i = 0; i < 3; i++) {
     let row = ""; 
     for (let j = 0; j < 3; j++) {
@@ -59,7 +62,7 @@ function magicsquare(a)
     console.log("nawaaah!! not a magic square.");
 }
         }
-        
+       //calling the function. 
         magicsquare(a);
 
 
