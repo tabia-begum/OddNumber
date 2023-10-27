@@ -1,0 +1,94 @@
+<!--Here I have created an webpage where a user can check if the given numbers
+validates a magic box property-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic-Box</title>
+</head>
+<!--I have used table tag to give it a box format and used the "table data tag 
+    to store its value
+    it ia a 3X3 matrix validation"-->
+<body>
+    <h1 style="text-align: center;">MAGIC BOX </h1>
+    <p style="font-size: 32px; font-family:Cambria, Cochin, Georgia, 
+            Times, 'Times New Roman', serif; ">
+        A magic square (or magic box) is a square matrix in 
+       which the sums of the numbers in each row, each column, 
+        and both main diagonals are the same.</p>
+    <h2 style="color:#77cbcb;  ">
+        Validate a 3X3 Magic-Box</h1>
+    <table border="0.5px">
+        <tr>
+            <!--Data for row one-->
+            <td id="1"><input type="number"></td>
+            <td id="2"><input type="number"></td>
+            <td id="3"><input type="number"></td>
+        </tr>
+        <tr>
+             <!--Data for row two-->
+            <td id="4"><input type="number"></td>
+            <td id="5"><input type="number"></td>
+            <td id="6"><input type="number"></td>
+        </tr>
+        <tr>
+              <!--Data for row three-->
+            <td id="7"><input type="number"></td>
+            <td id="8"><input type="number"></td>
+            <td id="9"><input type="number"></td>
+        </tr>
+    </table>
+    <button onclick="check()"  type="button"
+    class="btn btn-outline-secondary">Submit</button>
+<!--here I am implemen ting the javaScript code to valide the box-->
+<!--Here I am asking the users to enter the numbers manually-->
+
+    <script>
+        /*here I am using a check function to check the intialize and get the values */
+        function check() {
+            let matrix = [
+                [parseInt(document.getElementById('1').getElementsByTagName('input')[0].value),
+                parseInt(document.getElementById('2').getElementsByTagName('input')[0].value),
+                parseInt(document.getElementById('3').getElementsByTagName('input')[0].value)],
+                [parseInt(document.getElementById('4').getElementsByTagName('input')[0].value),
+                parseInt(document.getElementById('5').getElementsByTagName('input')[0].value),
+                parseInt(document.getElementById('6').getElementsByTagName('input')[0].value)],
+                [parseInt(document.getElementById('7').getElementsByTagName('input')[0].value),
+                parseInt(document.getElementById('8').getElementsByTagName('input')[0].value),
+                parseInt(document.getElementById('9').getElementsByTagName('input')[0].value)]
+         ];
+    let row1 = 0;
+    let row2 = 0;
+    let row3 = 0;
+     //adding all the rows  
+        row1 += matrix[0][0]+matrix[0][1]+matrix[0][2];
+        row2 += matrix[1][0]+matrix[1][1]+matrix[1][2];
+        row3 += matrix[2][0]+matrix[2][1]+matrix[2][2];
+//here we are adding all the coloumns
+    let col1 = 0;
+    let col2 = 0;
+    let col3 = 0;
+        col1 += matrix[0][0]+matrix[1][0]+matrix[2][0];
+        col2 += matrix[0][1]+matrix[1][1]+matrix[2][1];
+        col3 += matrix[0][2]+matrix[1][2]+matrix[2][2];
+//here we are adding the diagonals 
+    let d1=0
+    let d2=0
+    d1=matrix[0][0]+matrix[1][1]+matrix[2][2]
+    d2=matrix[0][2]+matrix[1][1]+matrix[2][0]
+    //gave an if condition to check the logic
+    if (row1 === row2 && row2 === row3 && row3 === col1 && col1 === col2 && col2 === col3 && col3 === d1 && d1 === d2) {
+    alert("Hurray!!a magic square!");
+} else {
+    alert("nawaaah!! not a magic square.");
+}
+        }
+        
+        
+
+    </script>
+</body>
+
+</html>
